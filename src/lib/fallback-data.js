@@ -64,32 +64,32 @@ export const fallbackPortfolio = {
       description:
         'Plateforme de ressources humaines connectee a WhatsApp pour gerer les disponibilites, documents, missions et matching entre agences d interim et interimaires. Travail sur une application metier moderne construite en Next.js, Supabase et n8n.',
       stack: 'Next.js, Supabase, n8n, WhatsApp, KYC, TypeScript',
-      url: 'https://agence-scroll.com/use-cases/sistr',
-      link_label: 'Voir le cas client',
+      url: '',
+      link_label: '',
     },
     {
       title: 'Sitex',
       description:
         'Application metier de planification et de suivi temps reel pour les services de securite evenementielle. Le produit centralise plannings, agents, documents, incidents terrain et supervision operationnelle dans une interface unique.',
       stack: 'Next.js, Supabase, n8n, OVH, TypeScript',
-      url: 'https://agence-scroll.com/use-cases/sitex',
-      link_label: 'Voir le cas client',
+      url: '',
+      link_label: '',
     },
     {
       title: "Je Reve d'une Maison",
       description:
         'Application web sur mesure pour la chasse immobiliere: recherche de biens, qualification, alertes, suivi client et centralisation des echanges entre chasseurs et acquereurs dans une seule interface.',
       stack: 'Next.js, Supabase, TypeScript',
-      url: 'https://agence-scroll.com/use-cases/je-reve-dune-maison',
-      link_label: 'Voir le cas client',
+      url: '',
+      link_label: '',
     },
     {
       title: 'Cindra',
       description:
         'SaaS metier pour digitaliser l activite de groupes specialises dans l installation et la maintenance d equipements de securite incendie, avec gestion terrain, documents automatiques et donnees centralisees.',
       stack: 'Next.js, Supabase, n8n, OVH, DocuSeal',
-      url: 'https://agence-scroll.com/use-cases/cindra',
-      link_label: 'Voir le cas client',
+      url: '',
+      link_label: '',
     },
     {
       title: 'Gestion festival de theatre',

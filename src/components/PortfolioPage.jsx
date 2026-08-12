@@ -235,9 +235,11 @@ export default function PortfolioPage() {
                 <h3>{selectedProject.title}</h3>
                 <p>{selectedProject.description}</p>
                 {selectedProject.stack ? <p className="project-stack">{selectedProject.stack}</p> : null}
-                <a href={selectedProject.url} target="_blank" rel="noreferrer">
-                  {selectedProject.link_label}
-                </a>
+                {selectedProject.url && selectedProject.link_label ? (
+                  <a href={selectedProject.url} target="_blank" rel="noreferrer">
+                    {selectedProject.link_label}
+                  </a>
+                ) : null}
               </article>
             ) : null}
           </div>
