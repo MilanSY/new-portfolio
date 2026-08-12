@@ -6,7 +6,7 @@ import { fallbackPortfolio } from '../lib/fallback-data';
 
 const navItems = [
   { href: '#projects', label: 'Projets' },
-  { href: '#experience', label: 'Experience' },
+  { href: '#tech', label: 'Technos' },
   { href: '#about', label: 'Profil' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -16,6 +16,7 @@ export default function PortfolioPage() {
   const [loading, setLoading] = useState(hasSupabaseEnv);
   const [error, setError] = useState('');
   const [activeSection, setActiveSection] = useState('#about');
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
   useEffect(() => {
     let isMounted = true;
@@ -49,6 +50,12 @@ export default function PortfolioPage() {
       isMounted = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (selectedProjectIndex > portfolio.projects.length - 1) {
+      setSelectedProjectIndex(0);
+    }
+  }, [portfolio.projects.length, selectedProjectIndex]);
 
   useEffect(() => {
     const sections = navItems
@@ -92,6 +99,8 @@ export default function PortfolioPage() {
 
     return 'Contenu alimente par Supabase.';
   })();
+
+  const selectedProject = portfolio.projects[selectedProjectIndex] ?? portfolio.projects[0];
 
   return (
     <div className="page-shell">
@@ -180,20 +189,17 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section className="content-grid" id="experience">
+        <section className="content-grid" id="tech">
           <div className="section-heading">
-            <p className="eyebrow">Parcours</p>
-            <h2>{portfolio.experienceTitle}</h2>
+            <p className="eyebrow">Technos</p>
+            <h2>Les technos que j utilise vraiment sur mes projets.</h2>
           </div>
 
-          <div className="timeline">
-            {portfolio.experiences.map((item) => (
-              <article className="timeline-item" key={`${item.period}-${item.title}`}>
-                <div className="timeline-period">{item.period}</div>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
+          <div className="stats-grid tech-grid">
+            {portfolio.skills.map((skill) => (
+              <article key={skill.label}>
+                <p className="stat-value">{skill.label}</p>
+                <p className="stat-label">{skill.description}</p>
               </article>
             ))}
           </div>
@@ -205,30 +211,36 @@ export default function PortfolioPage() {
             <h2>{portfolio.projectsTitle}</h2>
           </div>
 
-          <div className="project-list">
-            {portfolio.projects.map((project, index) => (
-              <article className="project-card" key={project.title}>
-                <div className="project-index">{String(index + 1).padStart(2, '0')}</div>
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  {project.stack ? <p className="project-stack">{project.stack}</p> : null}
-                  <a href={project.url} target="_blank" rel="noreferrer">
-                    {project.link_label}
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+          <div className="project-explorer">
+            <div className="project-list" role="tablist" aria-label="Liste des projets">
+              {portfolio.projects.map((project, index) => (
+                <button
+                  key={project.title}
+                  type="button"
+                  className={`project-card project-button ${selectedProjectIndex === index ? 'is-selected' : ''}`}
+                  onClick={() => setSelectedProjectIndex(index)}
+                >
+                  <div className="project-index">{String(index + 1).padStart(2, '0')}</div>
+                  <div>
+                    <h3>{project.title}</h3>
+                    {project.stack ? <p className="project-stack">{project.stack}</p> : null}
+                  </div>
+                </button>
+              ))}
+            </div>
 
-        <section className="stats-grid">
-          {portfolio.skills.map((skill) => (
-            <article key={skill.label}>
-              <p className="stat-value">{skill.label}</p>
-              <p className="stat-label">{skill.description}</p>
-            </article>
-          ))}
+            {selectedProject ? (
+              <article className="project-detail">
+                <p className="eyebrow">Projet selectionne</p>
+                <h3>{selectedProject.title}</h3>
+                <p>{selectedProject.description}</p>
+                {selectedProject.stack ? <p className="project-stack">{selectedProject.stack}</p> : null}
+                <a href={selectedProject.url} target="_blank" rel="noreferrer">
+                  {selectedProject.link_label}
+                </a>
+              </article>
+            ) : null}
+          </div>
         </section>
 
         <section className="content-grid contact-grid" id="contact">
