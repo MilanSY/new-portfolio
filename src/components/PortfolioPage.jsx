@@ -212,6 +212,7 @@ export default function PortfolioPage() {
                 <div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
+                  {project.stack ? <p className="project-stack">{project.stack}</p> : null}
                   <a href={project.url} target="_blank" rel="noreferrer">
                     {project.link_label}
                   </a>

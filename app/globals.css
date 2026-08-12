@@ -353,6 +353,13 @@ main {
   color: var(--text);
 }
 
+.project-stack {
+  margin: 12px 0 0;
+  color: var(--accent);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

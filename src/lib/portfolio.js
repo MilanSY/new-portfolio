@@ -59,6 +59,7 @@ export async function fetchPortfolioData() {
           ? sortByOrder(projectsResult.data ?? []).map((item) => ({
               title: item.title,
               description: item.description,
+              stack: item.stack ?? '',
               url: item.url,
               link_label: item.link_label,
             }))
