@@ -60,9 +60,42 @@ export const fallbackPortfolio = {
   projectsTitle: 'Des projets qui montrent autant la pratique technique que la gestion de projet.',
   projects: [
     {
+      title: 'Sistr',
+      description:
+        'Plateforme de ressources humaines connectee a WhatsApp pour gerer les disponibilites, documents, missions et matching entre agences d interim et interimaires. Travail sur une application metier moderne construite en Next.js, Supabase et n8n.',
+      stack: 'Next.js, Supabase, n8n, WhatsApp, KYC, TypeScript',
+      url: 'https://agence-scroll.com/use-cases/sistr',
+      link_label: 'Voir le cas client',
+    },
+    {
+      title: 'Sitex',
+      description:
+        'Application metier de planification et de suivi temps reel pour les services de securite evenementielle. Le produit centralise plannings, agents, documents, incidents terrain et supervision operationnelle dans une interface unique.',
+      stack: 'Next.js, Supabase, n8n, OVH, TypeScript',
+      url: 'https://agence-scroll.com/use-cases/sitex',
+      link_label: 'Voir le cas client',
+    },
+    {
+      title: "Je Reve d'une Maison",
+      description:
+        'Application web sur mesure pour la chasse immobiliere: recherche de biens, qualification, alertes, suivi client et centralisation des echanges entre chasseurs et acquereurs dans une seule interface.',
+      stack: 'Next.js, Supabase, TypeScript',
+      url: 'https://agence-scroll.com/use-cases/je-reve-dune-maison',
+      link_label: 'Voir le cas client',
+    },
+    {
+      title: 'Cindra',
+      description:
+        'SaaS metier pour digitaliser l activite de groupes specialises dans l installation et la maintenance d equipements de securite incendie, avec gestion terrain, documents automatiques et donnees centralisees.',
+      stack: 'Next.js, Supabase, n8n, OVH, DocuSeal',
+      url: 'https://agence-scroll.com/use-cases/cindra',
+      link_label: 'Voir le cas client',
+    },
+    {
       title: 'Gestion festival de theatre',
       description:
         'Application Windows Forms en C# realisee en equipe de 3 pour monitorer une base de donnees de festival de theatre. Projet mene en methode AGILE avec suivi hebdomadaire, SQL, Figma et documentation complete.',
+      stack: 'C#, SQL, Figma, GitHub',
       url: 'https://github.com/MilanSY/Projet_GestionTheatre',
       link_label: 'Voir le projet GitHub',
     },
@@ -70,6 +103,7 @@ export const fallbackPortfolio = {
       title: 'Conge Facile',
       description:
         'Projet de fin de deuxieme annee de BTS: application web Symfony pour la gestion des demandes de conges. Travail en autonomie d equipe autour du cahier de recette, des sprints, de la documentation et du site.',
+      stack: 'Symfony, PHP, Twig, SQL, Figma, GitHub',
       url: 'https://github.com/Fnafgameur/CongeFacile',
       link_label: 'Voir le projet GitHub',
     },
@@ -77,6 +111,7 @@ export const fallbackPortfolio = {
       title: 'MathIndex',
       description:
         'Projet de fin de premiere annee de BTS realise en equipe de 3. Application PHP/JavaScript avec SCSS, maquette Figma, wiki utilisateur et livrables techniques pour capitaliser les acquis de gestion de projet.',
+      stack: 'PHP, JavaScript, SCSS, Figma, GitHub',
       url: 'https://github.com/Fratgameur/MathIndex',
       link_label: 'Voir le projet GitHub',
     },
@@ -84,15 +119,9 @@ export const fallbackPortfolio = {
       title: 'Stage chez Nodevo',
       description:
         'Projet de stage consistant a reproduire le squelette d un framework type Symfony puis a construire une application dynamique de gestion de guitares avec authentification, CRUD et back office admin.',
+      stack: 'PHP, SCSS, Figma',
       url: 'https://github.com/MilanSY/guitar-list.com',
       link_label: 'Voir le projet GitHub',
-    },
-    {
-      title: 'Premier projet responsive',
-      description:
-        'Projet d integration responsive realise a partir d une maquette fournie en formation. Un exercice important pour comprendre les contraintes concretement liees au frontend et a l adaptation multi-ecrans.',
-      url: 'https://mjuino.lyceestvincent.fr/',
-      link_label: 'Voir l ancien portfolio',
     },
   ],
   skills: [
