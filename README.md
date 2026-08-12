@@ -40,6 +40,30 @@ npm run build
 npm run start
 ```
 
+## Docker
+
+Build local Docker :
+
+```bash
+docker build -t new-portfolio .
+```
+
+L'image applicative utilise Node 22.
+
+## Redeploy VPS
+
+Sur le VPS, le redeploy applicatif peut se faire avec :
+
+```bash
+sh /home/milan/apps/new-portfolio/scripts/redeploy.sh
+```
+
+Ce script :
+
+- fait un `git pull --ff-only`
+- rebuild le conteneur `portfolio-app`
+- relance le service via Docker Compose
+
 ## Schema Supabase
 
 Le schema SQL du portfolio est documente dans `supabase-schema.sql`.
