@@ -29,6 +29,7 @@ export default function PortfolioPage() {
   const [activeSection, setActiveSection] = useState('#about');
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
+  const [hasProjectImageError, setHasProjectImageError] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -116,6 +117,10 @@ export default function PortfolioPage() {
   const selectedProjectImage = selectedProject
     ? selectedProject.image || projectImageFallbacks[selectedProject.title] || ''
     : '';
+
+  useEffect(() => {
+    setHasProjectImageError(false);
+  }, [selectedProject?.title, selectedProjectImage]);
 
   useEffect(() => {
     if (!isProjectModalOpen) {
@@ -294,9 +299,15 @@ export default function PortfolioPage() {
                 x
               </button>
 
-              {selectedProjectImage ? (
+              {selectedProjectImage && !hasProjectImageError ? (
                 <div className="project-modal-image-wrap">
-                  <img className="project-modal-image" src={selectedProjectImage} alt={selectedProject.title} />
+                  <img
+                    key={selectedProjectImage}
+                    className="project-modal-image"
+                    src={selectedProjectImage}
+                    alt={selectedProject.title}
+                    onError={() => setHasProjectImageError(true)}
+                  />
                 </div>
               ) : null}
 
