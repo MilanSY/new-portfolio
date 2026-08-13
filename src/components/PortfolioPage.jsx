@@ -184,10 +184,6 @@ export default function PortfolioPage() {
   return (
     <div className="page-shell">
       <header className="site-header">
-        <a className="brand" href="#top">
-          MJ
-        </a>
-
         <button
           type="button"
           className="mobile-nav-toggle"

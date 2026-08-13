@@ -64,6 +64,19 @@ Ce script :
 - rebuild le conteneur `portfolio-app`
 - relance le service via Docker Compose
 
+## GitHub Actions Deploy
+
+Un workflow GitHub Actions de production est disponible dans `.github/workflows/deploy-production.yml`.
+
+Declenchement :
+
+- a chaque push sur `main`
+- manuellement via `workflow_dispatch`
+
+Secret GitHub requis :
+
+- `VPS_SSH_KEY` : cle privee SSH autorisee sur le VPS pour l utilisateur `milan`
+
 ## Schema Supabase
 
 Le schema SQL du portfolio est documente dans `supabase-schema.sql`.
