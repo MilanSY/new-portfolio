@@ -11,6 +11,17 @@ const navItems = [
   { href: '#contact', label: 'Contact' },
 ];
 
+const projectImageFallbacks = {
+  Sistr: '/projects/sistr.webp',
+  Sitex: '/projects/sitex.webp',
+  "Je Reve d'une Maison": '/projects/jrvm.webp',
+  Cindra: '/projects/cindra.webp',
+  'Gestion festival de theatre': '/projects/theatre.png',
+  'Conge Facile': '/projects/congefacile.png',
+  MathIndex: '/projects/mathindex.png',
+  'Stage chez Nodevo': '/projects/nodevo.png',
+};
+
 export default function PortfolioPage() {
   const [portfolio, setPortfolio] = useState(fallbackPortfolio);
   const [loading, setLoading] = useState(hasSupabaseEnv);
@@ -102,6 +113,9 @@ export default function PortfolioPage() {
   })();
 
   const selectedProject = portfolio.projects[selectedProjectIndex] ?? portfolio.projects[0];
+  const selectedProjectImage = selectedProject
+    ? selectedProject.image || projectImageFallbacks[selectedProject.title] || ''
+    : '';
 
   useEffect(() => {
     if (!isProjectModalOpen) {
@@ -280,9 +294,9 @@ export default function PortfolioPage() {
                 x
               </button>
 
-              {selectedProject.image ? (
+              {selectedProjectImage ? (
                 <div className="project-modal-image-wrap">
-                  <img className="project-modal-image" src={selectedProject.image} alt={selectedProject.title} />
+                  <img className="project-modal-image" src={selectedProjectImage} alt={selectedProject.title} />
                 </div>
               ) : null}
 
