@@ -70,6 +70,25 @@ a {
   box-shadow: var(--shadow);
 }
 
+.mobile-nav-toggle {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 999px;
+}
+
 .brand,
 .hero h1,
 .section-heading h2,
@@ -96,6 +115,35 @@ a {
   flex-wrap: wrap;
   gap: 20px;
   color: var(--muted);
+}
+
+.mobile-nav-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: min(240px, 100%);
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(9, 9, 11, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.mobile-nav-links {
+  display: grid;
+  gap: 10px;
+}
+
+.mobile-nav-links a {
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--muted);
+}
+
+.mobile-nav-links a.is-active,
+.mobile-nav-links a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
 }
 
 .site-nav a:hover,
@@ -542,6 +590,10 @@ main {
 }
 
 @media (max-width: 640px) {
+  .mobile-nav-toggle {
+    display: grid;
+  }
+
   .site-nav {
     display: none;
   }

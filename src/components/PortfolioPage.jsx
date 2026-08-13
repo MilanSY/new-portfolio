@@ -30,6 +30,7 @@ export default function PortfolioPage() {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
   const [hasProjectImageError, setHasProjectImageError] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -97,6 +98,24 @@ export default function PortfolioPage() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isMobileNavOpen) {
+      return undefined;
+    }
+
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') {
+        setIsMobileNavOpen(false);
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMobileNavOpen]);
+
   const statusText = (() => {
     if (loading) {
       return 'Chargement du contenu Supabase...';
@@ -147,6 +166,18 @@ export default function PortfolioPage() {
           MJ
         </a>
 
+        <button
+          type="button"
+          className="mobile-nav-toggle"
+          aria-label="Ouvrir le menu"
+          aria-expanded={isMobileNavOpen}
+          onClick={() => setIsMobileNavOpen((value) => !value)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
         <nav className="site-nav" aria-label="Navigation principale">
           {navItems.map((item) => (
             <a
@@ -158,6 +189,23 @@ export default function PortfolioPage() {
             </a>
           ))}
         </nav>
+
+        {isMobileNavOpen ? (
+          <div className="mobile-nav-panel">
+            <nav className="mobile-nav-links" aria-label="Navigation mobile">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={activeSection === item.href ? 'is-active' : ''}
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        ) : null}
       </header>
 
       <main id="top">
