@@ -41,6 +41,7 @@ create table if not exists portfolio_projects (
   title text not null,
   description text not null,
   stack text not null default '',
+  image text not null default '',
   url text not null,
   link_label text not null,
   display_order int not null default 0

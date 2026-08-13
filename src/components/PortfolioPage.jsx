@@ -17,6 +17,7 @@ export default function PortfolioPage() {
   const [error, setError] = useState('');
   const [activeSection, setActiveSection] = useState('#about');
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -101,6 +102,24 @@ export default function PortfolioPage() {
   })();
 
   const selectedProject = portfolio.projects[selectedProjectIndex] ?? portfolio.projects[0];
+
+  useEffect(() => {
+    if (!isProjectModalOpen) {
+      return undefined;
+    }
+
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') {
+        setIsProjectModalOpen(false);
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isProjectModalOpen]);
 
   return (
     <div className="page-shell">
@@ -218,7 +237,10 @@ export default function PortfolioPage() {
                   key={project.title}
                   type="button"
                   className={`project-card project-button ${selectedProjectIndex === index ? 'is-selected' : ''}`}
-                  onClick={() => setSelectedProjectIndex(index)}
+                  onClick={() => {
+                    setSelectedProjectIndex(index);
+                    setIsProjectModalOpen(true);
+                  }}
                 >
                   <div className="project-index">{String(index + 1).padStart(2, '0')}</div>
                   <div>
@@ -229,10 +251,44 @@ export default function PortfolioPage() {
               ))}
             </div>
 
-            {selectedProject ? (
-              <article className="project-detail">
-                <p className="eyebrow">Projet selectionne</p>
-                <h3>{selectedProject.title}</h3>
+            <article className="project-detail project-detail-hint">
+              <p className="eyebrow">Interaction</p>
+              <h3>Clique sur une carte pour ouvrir le projet.</h3>
+              <p>
+                Chaque projet s ouvre dans une modal avec son descriptif, sa stack et, quand elle existe,
+                son image issue de l ancien portfolio.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        {isProjectModalOpen && selectedProject ? (
+          <div className="project-modal-backdrop" onClick={() => setIsProjectModalOpen(false)}>
+            <div
+              className="project-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="project-modal-title"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                className="project-modal-close"
+                aria-label="Fermer"
+                onClick={() => setIsProjectModalOpen(false)}
+              >
+                x
+              </button>
+
+              {selectedProject.image ? (
+                <div className="project-modal-image-wrap">
+                  <img className="project-modal-image" src={selectedProject.image} alt={selectedProject.title} />
+                </div>
+              ) : null}
+
+              <div className="project-modal-body">
+                <p className="eyebrow">Projet</p>
+                <h3 id="project-modal-title">{selectedProject.title}</h3>
                 <p>{selectedProject.description}</p>
                 {selectedProject.stack ? <p className="project-stack">{selectedProject.stack}</p> : null}
                 {selectedProject.url && selectedProject.link_label ? (
@@ -240,10 +296,10 @@ export default function PortfolioPage() {
                     {selectedProject.link_label}
                   </a>
                 ) : null}
-              </article>
-            ) : null}
+              </div>
+            </div>
           </div>
-        </section>
+        ) : null}
 
         <section className="content-grid contact-grid" id="contact">
           <div className="section-heading">

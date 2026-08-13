@@ -64,6 +64,7 @@ export const fallbackPortfolio = {
       description:
         'Plateforme de ressources humaines connectee a WhatsApp pour gerer les disponibilites, documents, missions et matching entre agences d interim et interimaires. Travail sur une application metier moderne construite en Next.js, Supabase et n8n.',
       stack: 'Next.js, Supabase, n8n, WhatsApp, KYC, TypeScript',
+      image: '',
       url: '',
       link_label: '',
     },
@@ -72,6 +73,7 @@ export const fallbackPortfolio = {
       description:
         'Application metier de planification et de suivi temps reel pour les services de securite evenementielle. Le produit centralise plannings, agents, documents, incidents terrain et supervision operationnelle dans une interface unique.',
       stack: 'Next.js, Supabase, n8n, OVH, TypeScript',
+      image: '',
       url: '',
       link_label: '',
     },
@@ -80,6 +82,7 @@ export const fallbackPortfolio = {
       description:
         'Application web sur mesure pour la chasse immobiliere: recherche de biens, qualification, alertes, suivi client et centralisation des echanges entre chasseurs et acquereurs dans une seule interface.',
       stack: 'Next.js, Supabase, TypeScript',
+      image: '',
       url: '',
       link_label: '',
     },
@@ -88,6 +91,7 @@ export const fallbackPortfolio = {
       description:
         'SaaS metier pour digitaliser l activite de groupes specialises dans l installation et la maintenance d equipements de securite incendie, avec gestion terrain, documents automatiques et donnees centralisees.',
       stack: 'Next.js, Supabase, n8n, OVH, DocuSeal',
+      image: '',
       url: '',
       link_label: '',
     },
@@ -96,6 +100,7 @@ export const fallbackPortfolio = {
       description:
         'Application Windows Forms en C# realisee en equipe de 3 pour monitorer une base de donnees de festival de theatre. Projet mene en methode AGILE avec suivi hebdomadaire, SQL, Figma et documentation complete.',
       stack: 'C#, SQL, Figma, GitHub',
+      image: '/projects/theatre.png',
       url: 'https://github.com/MilanSY/Projet_GestionTheatre',
       link_label: 'Voir le projet GitHub',
     },
@@ -104,6 +109,7 @@ export const fallbackPortfolio = {
       description:
         'Projet de fin de deuxieme annee de BTS: application web Symfony pour la gestion des demandes de conges. Travail en autonomie d equipe autour du cahier de recette, des sprints, de la documentation et du site.',
       stack: 'Symfony, PHP, Twig, SQL, Figma, GitHub',
+      image: '/projects/congefacile.png',
       url: 'https://github.com/Fnafgameur/CongeFacile',
       link_label: 'Voir le projet GitHub',
     },
@@ -112,6 +118,7 @@ export const fallbackPortfolio = {
       description:
         'Projet de fin de premiere annee de BTS realise en equipe de 3. Application PHP/JavaScript avec SCSS, maquette Figma, wiki utilisateur et livrables techniques pour capitaliser les acquis de gestion de projet.',
       stack: 'PHP, JavaScript, SCSS, Figma, GitHub',
+      image: '/projects/mathindex.png',
       url: 'https://github.com/Fratgameur/MathIndex',
       link_label: 'Voir le projet GitHub',
     },
@@ -120,6 +127,7 @@ export const fallbackPortfolio = {
       description:
         'Projet de stage consistant a reproduire le squelette d un framework type Symfony puis a construire une application dynamique de gestion de guitares avec authentification, CRUD et back office admin.',
       stack: 'PHP, SCSS, Figma',
+      image: '/projects/nodevo.png',
       url: 'https://github.com/MilanSY/guitar-list.com',
       link_label: 'Voir le projet GitHub',
     },

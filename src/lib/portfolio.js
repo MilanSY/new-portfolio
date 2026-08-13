@@ -60,6 +60,7 @@ export async function fetchPortfolioData() {
               title: item.title,
               description: item.description,
               stack: item.stack ?? '',
+              image: item.image ?? '',
               url: item.url,
               link_label: item.link_label,
             }))
