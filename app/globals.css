@@ -368,9 +368,7 @@ main {
 }
 
 .project-explorer {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
-  gap: 16px;
+  display: block;
 }
 
 .timeline-item,
@@ -402,6 +400,11 @@ main {
 
 .project-card {
   grid-template-columns: 56px minmax(0, 1fr);
+}
+
+.project-list {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-content: start;
 }
 
 .project-button {
@@ -625,6 +628,8 @@ main {
 }
 
 .tech-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
   padding: 0;
   border: none;
   background: transparent;
