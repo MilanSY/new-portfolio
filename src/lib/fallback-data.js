@@ -103,6 +103,9 @@ export const fallbackPortfolio = {
       image: '/projects/theatre.png',
       url: 'https://github.com/MilanSY/Projet_GestionTheatre',
       link_label: 'Voir le projet GitHub',
+      docs: [
+        { label: 'Maquette Figma', url: 'https://www.figma.com/design/tkoy8osjFUhqPnZoDoDa99/Gestion-Th%C3%A9%C3%A2tre?m=auto&t=yXO1BarZSLjzBH8t-6' },
+      ],
     },
     {
       title: 'Conge Facile',
@@ -112,6 +115,9 @@ export const fallbackPortfolio = {
       image: '/projects/congefacile.png',
       url: 'https://github.com/Fnafgameur/CongeFacile',
       link_label: 'Voir le projet GitHub',
+      docs: [
+        { label: 'Maquette Figma', url: 'https://www.figma.com/design/asceKpDZb7Y8zscQkZRgLT/Cong%C3%A9Facile?node-id=0-1' },
+      ],
     },
     {
       title: 'MathIndex',
@@ -121,6 +127,11 @@ export const fallbackPortfolio = {
       image: '/projects/mathindex.png',
       url: 'https://github.com/Fratgameur/MathIndex',
       link_label: 'Voir le projet GitHub',
+      docs: [
+        { label: 'Maquette Figma', url: 'https://www.figma.com/design/CZJbT3dqXWcXOtaBmhZZ5p/Projet-MathIndex---Ligh' },
+        { label: 'Kit UI', url: 'https://www.figma.com/design/GxQFwirzwnmwipqtQgtrkd/KIT-UI-MATHINDEX?m=auto&t=yXO1BarZSLjzBH8t-6' },
+        { label: 'Guide utilisateur', url: 'https://github.com/Fnafgameur/MathIndex/wiki' },
+      ],
     },
     {
       title: 'Stage chez Nodevo',
@@ -130,6 +141,7 @@ export const fallbackPortfolio = {
       image: '/projects/nodevo.png',
       url: 'https://github.com/MilanSY/guitar-list.com',
       link_label: 'Voir le projet GitHub',
+      docs: [],
     },
   ],
   skills: [

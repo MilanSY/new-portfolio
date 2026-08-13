@@ -402,6 +402,18 @@ export default function PortfolioPage() {
                     ))}
                   </div>
                 ) : null}
+                {selectedProject.docs?.length ? (
+                  <div className="project-docs">
+                    <p className="project-docs-title">Docs et maquettes</p>
+                    <div className="project-doc-links">
+                      {selectedProject.docs.map((doc) => (
+                        <a key={`${selectedProject.title}-${doc.label}`} href={doc.url} target="_blank" rel="noreferrer">
+                          {doc.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
                 {hasMultipleProjects ? (
                   <div className="project-modal-actions">
                     <button
