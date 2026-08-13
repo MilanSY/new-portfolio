@@ -93,6 +93,7 @@ a {
 
 .site-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   color: var(--muted);
 }
@@ -521,7 +522,7 @@ main {
   font-size: 1.1rem;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 720px) {
   .hero,
   .content-grid,
   .stats-grid,
@@ -534,13 +535,15 @@ main {
     border-radius: 28px;
   }
 
-  .site-nav {
-    display: none;
-  }
-
   .timeline-item,
   .project-card {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-nav {
+    display: none;
   }
 }
 

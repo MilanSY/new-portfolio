@@ -65,8 +65,8 @@ export const fallbackPortfolio = {
         'Plateforme de ressources humaines connectee a WhatsApp pour gerer les disponibilites, documents, missions et matching entre agences d interim et interimaires. Travail sur une application metier moderne construite en Next.js, Supabase et n8n.',
       stack: 'Next.js, Supabase, n8n, WhatsApp, KYC, TypeScript',
       image: '/projects/sistr.webp',
-      url: '',
-      link_label: '',
+      url: 'https://sistr.ai/',
+      link_label: 'Voir le projet',
     },
     {
       title: 'Sitex',
