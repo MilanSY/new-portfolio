@@ -446,12 +446,6 @@ main {
   color: var(--text);
 }
 
-.project-detail-hint {
-  display: grid;
-  align-content: start;
-  gap: 14px;
-}
-
 .project-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -472,6 +466,37 @@ main {
   border-radius: 28px;
   background: #111217;
   box-shadow: var(--shadow);
+}
+
+.project-modal-side-nav {
+  position: fixed;
+  top: 50%;
+  z-index: 51;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(9, 9, 11, 0.88);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.project-modal-side-nav:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.project-modal-side-nav-prev {
+  left: max(16px, calc(50vw - 560px));
+}
+
+.project-modal-side-nav-next {
+  right: max(16px, calc(50vw - 560px));
 }
 
 .project-modal-close {
@@ -525,29 +550,6 @@ main {
   display: inline-flex;
   justify-self: start;
   color: var(--text);
-}
-
-.project-modal-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.project-modal-nav {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0 16px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
-  cursor: pointer;
-}
-
-.project-modal-nav:hover {
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .project-docs {
@@ -681,6 +683,22 @@ main {
 @media (max-width: 640px) {
   .mobile-nav-toggle {
     display: grid;
+  }
+
+  .project-modal-side-nav {
+    width: 44px;
+    height: 44px;
+    top: auto;
+    bottom: 28px;
+    transform: none;
+  }
+
+  .project-modal-side-nav-prev {
+    left: 24px;
+  }
+
+  .project-modal-side-nav-next {
+    right: 24px;
   }
 
   .site-nav {

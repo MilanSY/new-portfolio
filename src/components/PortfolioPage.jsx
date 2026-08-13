@@ -347,20 +347,37 @@ export default function PortfolioPage() {
                 </button>
               ))}
             </div>
-
-            <article className="project-detail project-detail-hint">
-              <p className="eyebrow">Interaction</p>
-              <h3>Clique sur une carte pour ouvrir le projet.</h3>
-              <p>
-                Chaque projet s ouvre dans une modal avec son descriptif, sa stack et, quand elle existe,
-                son image issue de l ancien portfolio.
-              </p>
-            </article>
           </div>
         </section>
 
         {isProjectModalOpen && selectedProject ? (
           <div className="project-modal-backdrop" onClick={() => setIsProjectModalOpen(false)}>
+            {hasMultipleProjects ? (
+              <>
+                <button
+                  type="button"
+                  className="project-modal-side-nav project-modal-side-nav-prev"
+                  aria-label="Projet precedent"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setSelectedProjectIndex((value) => (value - 1 + portfolio.projects.length) % portfolio.projects.length);
+                  }}
+                >
+                  &lt;
+                </button>
+                <button
+                  type="button"
+                  className="project-modal-side-nav project-modal-side-nav-next"
+                  aria-label="Projet suivant"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setSelectedProjectIndex((value) => (value + 1) % portfolio.projects.length);
+                  }}
+                >
+                  &gt;
+                </button>
+              </>
+            ) : null}
             <div
               className="project-modal"
               role="dialog"
@@ -412,26 +429,6 @@ export default function PortfolioPage() {
                         </a>
                       ))}
                     </div>
-                  </div>
-                ) : null}
-                {hasMultipleProjects ? (
-                  <div className="project-modal-actions">
-                    <button
-                      type="button"
-                      className="project-modal-nav"
-                      onClick={() =>
-                        setSelectedProjectIndex((value) => (value - 1 + portfolio.projects.length) % portfolio.projects.length)
-                      }
-                    >
-                      Projet precedent
-                    </button>
-                    <button
-                      type="button"
-                      className="project-modal-nav"
-                      onClick={() => setSelectedProjectIndex((value) => (value + 1) % portfolio.projects.length)}
-                    >
-                      Projet suivant
-                    </button>
                   </div>
                 ) : null}
                 {selectedProject.url && selectedProject.link_label ? (
