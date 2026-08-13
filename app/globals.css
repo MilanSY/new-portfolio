@@ -252,7 +252,7 @@ main {
 .hero-photo {
   display: grid;
   place-items: end start;
-  min-height: 320px;
+  aspect-ratio: 1 / 1;
   padding: 24px;
   border-radius: 22px;
   background:
@@ -266,6 +266,7 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
 }
 
 .hero-photo span {
@@ -728,6 +729,6 @@ main {
   }
 
   .hero-photo {
-    min-height: 220px;
+    aspect-ratio: 1 / 1;
   }
 }
