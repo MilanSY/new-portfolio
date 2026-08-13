@@ -127,6 +127,7 @@ a {
   border-radius: 22px;
   background: rgba(9, 9, 11, 0.96);
   box-shadow: var(--shadow);
+  animation: mobileNavEnter 180ms ease;
 }
 
 .mobile-nav-links {
@@ -526,6 +527,29 @@ main {
   color: var(--text);
 }
 
+.project-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-modal-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.project-modal-nav:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .project-card a,
 .contact-panel a {
   color: var(--text);
@@ -568,6 +592,18 @@ main {
 
 .contact-panel a {
   font-size: 1.1rem;
+}
+
+@keyframes mobileNavEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 720px) {

@@ -136,6 +136,7 @@ export default function PortfolioPage() {
   const selectedProjectImage = selectedProject
     ? selectedProject.image || projectImageFallbacks[selectedProject.title] || ''
     : '';
+  const hasMultipleProjects = portfolio.projects.length > 1;
 
   useEffect(() => {
     setHasProjectImageError(false);
@@ -146,18 +147,32 @@ export default function PortfolioPage() {
       return undefined;
     }
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     function handleKeyDown(event) {
       if (event.key === 'Escape') {
         setIsProjectModalOpen(false);
+        return;
+      }
+
+      if (event.key === 'ArrowRight' && portfolio.projects.length > 1) {
+        setSelectedProjectIndex((value) => (value + 1) % portfolio.projects.length);
+        return;
+      }
+
+      if (event.key === 'ArrowLeft' && portfolio.projects.length > 1) {
+        setSelectedProjectIndex((value) => (value - 1 + portfolio.projects.length) % portfolio.projects.length);
       }
     }
 
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isProjectModalOpen]);
+  }, [isProjectModalOpen, portfolio.projects.length]);
 
   return (
     <div className="page-shell">
@@ -364,6 +379,26 @@ export default function PortfolioPage() {
                 <h3 id="project-modal-title">{selectedProject.title}</h3>
                 <p>{selectedProject.description}</p>
                 {selectedProject.stack ? <p className="project-stack">{selectedProject.stack}</p> : null}
+                {hasMultipleProjects ? (
+                  <div className="project-modal-actions">
+                    <button
+                      type="button"
+                      className="project-modal-nav"
+                      onClick={() =>
+                        setSelectedProjectIndex((value) => (value - 1 + portfolio.projects.length) % portfolio.projects.length)
+                      }
+                    >
+                      Projet precedent
+                    </button>
+                    <button
+                      type="button"
+                      className="project-modal-nav"
+                      onClick={() => setSelectedProjectIndex((value) => (value + 1) % portfolio.projects.length)}
+                    >
+                      Projet suivant
+                    </button>
+                  </div>
+                ) : null}
                 {selectedProject.url && selectedProject.link_label ? (
                   <a href={selectedProject.url} target="_blank" rel="noreferrer">
                     {selectedProject.link_label}
