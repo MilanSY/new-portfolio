@@ -7,7 +7,7 @@ export const fallbackPortfolio = {
     positioning: 'Full stack avec une forte sensibilite produit et frontend.',
     favorite_stack: 'React, TypeScript, Symfony, PHP, C#, SQL, PostgreSQL',
     location: 'Hauts-de-France · disponible pour alternance',
-    photo_url: '',
+    photo_url: '/profile.jpg',
   },
   highlights: [
     'Des projets concrets realises en formation, en stage et en equipe avec documentation et soutenance.',
