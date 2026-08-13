@@ -75,7 +75,7 @@ Declenchement :
 
 Secret GitHub requis :
 
-- `VPS_SSH_KEY` : cle privee SSH autorisee sur le VPS pour l utilisateur `milan`
+- `VPS_SSH_KEY_B64` : cle privee SSH encodee en base64, autorisee sur le VPS pour l utilisateur `milan`
 
 ## Schema Supabase
 

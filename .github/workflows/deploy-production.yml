@@ -18,16 +18,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Start SSH agent
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
-
-      - name: Trust VPS host key
+      - name: Configure SSH key
         run: |
           mkdir -p ~/.ssh
+          echo "$VPS_SSH_KEY_B64" | base64 -d > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -p 22 137.74.175.217 >> ~/.ssh/known_hosts
+        env:
+          VPS_SSH_KEY_B64: ${{ secrets.VPS_SSH_KEY_B64 }}
 
       - name: Deploy on VPS
         run: |
-          ssh milan@137.74.175.217 "cd /home/milan/apps/new-portfolio && sh scripts/redeploy.sh"
+          ssh -i ~/.ssh/deploy_key milan@137.74.175.217 "cd /home/milan/apps/new-portfolio && sh scripts/redeploy.sh"
