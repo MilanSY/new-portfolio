@@ -22,6 +22,13 @@ const projectImageFallbacks = {
   'Stage chez Nodevo': '/projects/nodevo.png',
 };
 
+function getProjectTags(stack) {
+  return (stack || '')
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
 export default function PortfolioPage() {
   const [portfolio, setPortfolio] = useState(fallbackPortfolio);
   const [loading, setLoading] = useState(hasSupabaseEnv);
@@ -327,7 +334,15 @@ export default function PortfolioPage() {
                   <div className="project-index">{String(index + 1).padStart(2, '0')}</div>
                   <div>
                     <h3>{project.title}</h3>
-                    {project.stack ? <p className="project-stack">{project.stack}</p> : null}
+                    {project.stack ? (
+                      <div className="project-tags" aria-label="Technologies du projet">
+                        {getProjectTags(project.stack).map((tag) => (
+                          <span key={`${project.title}-${tag}`} className="project-tag">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                 </button>
               ))}
@@ -378,7 +393,15 @@ export default function PortfolioPage() {
                 <p className="eyebrow">Projet</p>
                 <h3 id="project-modal-title">{selectedProject.title}</h3>
                 <p>{selectedProject.description}</p>
-                {selectedProject.stack ? <p className="project-stack">{selectedProject.stack}</p> : null}
+                {selectedProject.stack ? (
+                  <div className="project-tags" aria-label="Technologies du projet">
+                    {getProjectTags(selectedProject.stack).map((tag) => (
+                      <span key={`${selectedProject.title}-${tag}`} className="project-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
                 {hasMultipleProjects ? (
                   <div className="project-modal-actions">
                     <button

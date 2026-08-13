@@ -562,6 +562,27 @@ main {
   line-height: 1.6;
 }
 
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.project-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(167, 139, 250, 0.24);
+  border-radius: 999px;
+  background: rgba(167, 139, 250, 0.08);
+  color: #d8ccff;
+  font-size: 0.82rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
