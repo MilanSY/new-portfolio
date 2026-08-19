@@ -11,6 +11,12 @@ const navItems = [
   { href: '#contact', label: 'Contact' },
 ];
 
+const profileLinks = [
+  { href: 'https://github.com/MilanSY', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/milan-juino-376636286/', label: 'LinkedIn' },
+  { href: 'https://mjuino.lyceestvincent.fr/docs/CVMilanJUINO.pdf', label: 'CV' },
+];
+
 const projectImageFallbacks = {
   Sistr: '/projects/sistr.webp',
   Sitex: '/projects/sitex.webp',
@@ -244,6 +250,11 @@ export default function PortfolioPage() {
               <a className="button button-secondary" href="#projects">
                 Voir les projets
               </a>
+              {profileLinks.map((link) => (
+                <a key={link.href} className="button button-secondary" href={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
 
