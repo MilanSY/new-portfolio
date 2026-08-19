@@ -133,7 +133,7 @@ export default function PortfolioPage() {
     }
 
     if (!hasSupabaseEnv) {
-      return 'Mode local actif: ajoute tes credentials Supabase dans .env.';
+      return '';
     }
 
     return 'Contenu alimente par Supabase.';
@@ -267,10 +267,12 @@ export default function PortfolioPage() {
           </aside>
         </section>
 
-        <section className="status-banner" aria-live="polite">
-          <span className="status-dot" />
-          <p>{statusText}</p>
-        </section>
+        {statusText ? (
+          <section className="status-banner" aria-live="polite">
+            <span className="status-dot" />
+            <p>{statusText}</p>
+          </section>
+        ) : null}
 
         <section className="highlight-row">
           {portfolio.highlights.map((highlight, index) => (
@@ -452,7 +454,7 @@ export default function PortfolioPage() {
             <a href={portfolio.contact.legacy_portfolio_url} target="_blank" rel="noreferrer">
               Ancien portfolio
             </a>
-            <p className="contact-note">{portfolio.contact.note}</p>
+            {portfolio.contact.note ? <p className="contact-note">{portfolio.contact.note}</p> : null}
           </div>
         </section>
       </main>

@@ -172,6 +172,6 @@ export const fallbackPortfolio = {
     github_url: 'https://github.com/MilanJSY',
     github_label: 'github.com/MilanJSY',
     legacy_portfolio_url: 'https://mjuino.lyceestvincent.fr/',
-    note: 'La carte photo peut etre remplacee rapidement par ton vrai portrait des que tu veux.',
+    note: '',
   },
 };
