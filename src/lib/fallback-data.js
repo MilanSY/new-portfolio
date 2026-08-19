@@ -6,7 +6,7 @@ export const fallbackPortfolio = {
       "Developpeur full stack, prochainement en M1 a l'ESGI. Je construis des applications web utiles, de l'interface React jusqu'aux bases SQL et APIs C# ou PHP.",
     positioning: 'Full stack avec une forte sensibilite produit et frontend.',
     favorite_stack: 'React, TypeScript, Symfony, PHP, C#, SQL, PostgreSQL',
-    location: 'Hauts-de-France · disponible pour alternance',
+    location: 'Paris · Hauts-de-France',
     photo_url: '/profile.jpg',
   },
   highlights: [
