@@ -447,12 +447,6 @@ export default function PortfolioPage() {
           <div className="contact-panel">
             <a href={`mailto:${portfolio.contact.email}`}>{portfolio.contact.email}</a>
             <a href={`tel:${portfolio.contact.phone_link}`}>{portfolio.contact.phone_display}</a>
-            <a href={portfolio.contact.github_url} target="_blank" rel="noreferrer">
-              {portfolio.contact.github_label}
-            </a>
-            <a href={portfolio.contact.legacy_portfolio_url} target="_blank" rel="noreferrer">
-              Ancien portfolio
-            </a>
             {portfolio.contact.note ? <p className="contact-note">{portfolio.contact.note}</p> : null}
           </div>
         </section>
