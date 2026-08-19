@@ -126,11 +126,7 @@ Compte de service dedie. Les agents ne tournent sous aucun compte personnel - il
 
 Selection du modele par agent, avec chaines de repli automatiques : un modele haut de gamme pour la redaction, un modele leger pour l'extraction de donnees, un modele specialise code pour le DevOps. Optimisation du rapport cout/qualite sans degrader les taches sensibles.
 
-Fiabilisation de la livraison automatique : identification et correction d'un echec silencieux ou les taches planifiees s'executaient correctement mais n'etaient jamais delivrees.
-
-Stack
-
-Hermes Agent (auto-heberge) - Ubuntu - systemd - Slack Socket Mode - OAuth2 - Google Gmail API - Nginx Proxy Manager - Let's Encrypt - Docker`,
+Fiabilisation de la livraison automatique : identification et correction d'un echec silencieux ou les taches planifiees s'executaient correctement mais n'etaient jamais delivrees.`,
       stack: 'Hermes Agent, Ubuntu, systemd, Slack Socket Mode, OAuth2, Google Gmail API, Nginx Proxy Manager, Let\'s Encrypt, Docker',
       image: '',
       url: '',
