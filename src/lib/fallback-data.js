@@ -96,6 +96,15 @@ export const fallbackPortfolio = {
       link_label: '',
     },
     {
+      title: 'Hermes Agent',
+      description:
+        'Mise en place d une solution auto-hebergee pilotee depuis Slack pour automatiser des taches recurrentes sans exposer les donnees a des plateformes externes. Trois agents sont en production pour la comptabilite, la veille marketing quotidienne et le support DevOps, avec une infrastructure resiliente, une interface d administration HTTPS securisee et une documentation permettant a l equipe d ajuster le comportement sans intervention technique.',
+      stack: 'Hermes Agent, Ubuntu, systemd, Slack Socket Mode, OAuth2, Google Gmail API, Nginx Proxy Manager, Let\'s Encrypt, Docker',
+      image: '',
+      url: '',
+      link_label: '',
+    },
+    {
       title: 'Gestion festival de theatre',
       description:
         'Application Windows Forms en C# realisee en equipe de 3 pour monitorer une base de donnees de festival de theatre. Projet mene en methode AGILE avec suivi hebdomadaire, SQL, Figma et documentation complete.',
