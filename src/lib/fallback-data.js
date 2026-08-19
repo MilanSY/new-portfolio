@@ -98,7 +98,39 @@ export const fallbackPortfolio = {
     {
       title: 'Hermes Agent',
       description:
-        'Mise en place d une solution auto-hebergee pilotee depuis Slack pour automatiser des taches recurrentes sans exposer les donnees a des plateformes externes. Trois agents sont en production pour la comptabilite, la veille marketing quotidienne et le support DevOps, avec une infrastructure resiliente, une interface d administration HTTPS securisee et une documentation permettant a l equipe d ajuster le comportement sans intervention technique.',
+        `Le contexte
+
+L'agence voulait automatiser trois taches recurrentes sans multiplier les abonnements ni exposer ses donnees a des plateformes externes. Le choix s'est porte sur une solution auto-hebergee, pilotee depuis l'outil deja utilise quotidiennement par l'equipe.
+
+Ce qui a ete livre
+
+Trois agents en production, joignables dans leurs canaux Slack respectifs :
+
+Comptabilite - surveille les factures recues et emises, extrait montants et echeances, detecte doublons et hausses tarifaires anormales
+Marketing - veille quotidienne automatisee, livre chaque matin a 9h un brief de 3 a 5 angles d'articles sources
+DevOps - diagnostique le serveur et ses 106 conteneurs de production, prepare de nouveaux projets
+
+Une infrastructure resiliente : services systemd sous compte dedie, redemarrage automatique, survie au reboot, sans droits administrateur.
+
+Une interface d'administration web en HTTPS derriere reverse proxy, protegee par authentification a empreinte scrypt.
+
+Une documentation d'exploitation permettant a l'equipe de modifier elle-meme le comportement des agents sans intervention technique.
+
+Points techniques notables
+
+Securite par le moindre privilege. Les permissions Google demandees par defaut ont ete reduites de huit a une seule - lecture seule sur la messagerie. L'interdiction d'envoyer un mail n'est pas une consigne donnee a l'agent, c'est une impossibilite technique verifiee : l'API refuse toute ecriture.
+
+Cloisonnement effectif. Chaque agent possede son repertoire personnel isole : aucun ne peut lire les identifiants ni la memoire d'un autre. Les acces sont restreints nominativement, agent par agent.
+
+Compte de service dedie. Les agents ne tournent sous aucun compte personnel - ils survivent a un depart, et leurs droits se reglent independamment de ceux des humains.
+
+Selection du modele par agent, avec chaines de repli automatiques : un modele haut de gamme pour la redaction, un modele leger pour l'extraction de donnees, un modele specialise code pour le DevOps. Optimisation du rapport cout/qualite sans degrader les taches sensibles.
+
+Fiabilisation de la livraison automatique : identification et correction d'un echec silencieux ou les taches planifiees s'executaient correctement mais n'etaient jamais delivrees.
+
+Stack
+
+Hermes Agent (auto-heberge) - Ubuntu - systemd - Slack Socket Mode - OAuth2 - Google Gmail API - Nginx Proxy Manager - Let's Encrypt - Docker`,
       stack: 'Hermes Agent, Ubuntu, systemd, Slack Socket Mode, OAuth2, Google Gmail API, Nginx Proxy Manager, Let\'s Encrypt, Docker',
       image: '',
       url: '',
