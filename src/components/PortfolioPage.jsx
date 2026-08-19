@@ -5,9 +5,9 @@ import { fetchPortfolioData, hasSupabaseEnv } from '../lib/portfolio';
 import { fallbackPortfolio } from '../lib/fallback-data';
 
 const navItems = [
+  { href: '#profile', label: 'Profil' },
   { href: '#projects', label: 'Projets' },
   { href: '#tech', label: 'Technos' },
-  { href: '#about', label: 'Profil' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -33,7 +33,7 @@ export default function PortfolioPage() {
   const [portfolio, setPortfolio] = useState(fallbackPortfolio);
   const [loading, setLoading] = useState(hasSupabaseEnv);
   const [error, setError] = useState('');
-  const [activeSection, setActiveSection] = useState('#about');
+  const [activeSection, setActiveSection] = useState('#profile');
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
   const [hasProjectImageError, setHasProjectImageError] = useState(false);
@@ -227,9 +227,9 @@ export default function PortfolioPage() {
       </header>
 
       <main id="top">
-        <section className="hero section-grid">
+        <section className="hero section-grid" id="profile">
           <div className="hero-copy">
-            <p className="eyebrow">Recherche d'alternance</p>
+            <p className="eyebrow">Profil</p>
             <h1>
               {portfolio.profile.first_name}
               <br />
@@ -281,18 +281,6 @@ export default function PortfolioPage() {
               <p>{highlight}</p>
             </article>
           ))}
-        </section>
-
-        <section className="content-grid" id="about">
-          <div className="section-heading">
-            <p className="eyebrow">Profil</p>
-            <h2>{portfolio.about.title}</h2>
-          </div>
-          <div className="text-panel">
-            {portfolio.about.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
         </section>
 
         <section className="content-grid" id="tech">
